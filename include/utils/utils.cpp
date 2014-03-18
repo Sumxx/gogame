@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "utils.h"
 #include <cstdio>
 
@@ -30,18 +31,16 @@ bool utils::GetXmlIntAttribute( TiXmlElement *pElement, char *pName, int &nData 
     }
     return false;
 }
-/*
-bool utils::InstallFont(const std::string path)
+
+CString GetGamePath()
 {
-    return AddFontResource(path.c_str()) != 0;
+    CString csReturnPath;
+    WCHAR szFilePath[MAX_PATH] = {0};
+    ::GetModuleFileNameW(0, szFilePath, MAX_PATH);
+    ::PathRemoveFileSpecW(szFilePath);
+    csReturnPath = szFilePath;
+    csReturnPath += L"\\";
+    return csReturnPath;
 }
-bool utils::UninstallFont(const std::string path)
-{
-    return RemoveFontResource(path.c_str()) != 0;
-}
-void utils::ErrorMessage(const std::string text)
-{
-    MessageBox(NULL, text.c_str(), NULL, MB_OK);
-}
-*/
+
 }

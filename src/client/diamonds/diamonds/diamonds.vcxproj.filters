@@ -22,6 +22,9 @@
     <Filter Include="import\irrlicht">
       <UniqueIdentifier>{79c58e8c-4596-49fc-af0c-88d48412d71b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\utils">
+      <UniqueIdentifier>{e5d63595-36d2-4752-867e-96d7a7b6878b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -561,7 +564,13 @@
     <ClInclude Include="..\..\..\..\import\irrlicht\vector3d.h">
       <Filter>import\irrlicht</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\import\tinyxml-2.6.2\tinyxml.h">
+    <ClInclude Include="..\..\..\..\include\utils\singleton.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\utils\utils.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\import\tinyxml\tinyxml.h">
       <Filter>import\tinyxml</Filter>
     </ClInclude>
   </ItemGroup>
@@ -572,13 +581,16 @@
     <ClCompile Include="main.cpp">
       <Filter>srouce</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\import\tinyxml-2.6.2\tinyxml.cpp">
+    <ClCompile Include="..\..\..\..\include\utils\utils.cpp">
+      <Filter>include\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\import\tinyxml\tinyxml.cpp">
       <Filter>import\tinyxml</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\import\tinyxml-2.6.2\tinyxmlerror.cpp">
+    <ClCompile Include="..\..\..\..\import\tinyxml\tinyxmlerror.cpp">
       <Filter>import\tinyxml</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\import\tinyxml-2.6.2\tinyxmlparser.cpp">
+    <ClCompile Include="..\..\..\..\import\tinyxml\tinyxmlparser.cpp">
       <Filter>import\tinyxml</Filter>
     </ClCompile>
   </ItemGroup>

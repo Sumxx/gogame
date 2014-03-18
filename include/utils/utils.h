@@ -2,7 +2,8 @@
 
 #include <string.h>
 #include <Windows.h>
-#include "import\tinyxml-2.6.2\tinyxml.h"
+#include <atlstr.h>
+#include "tinyxml.h"
 
 namespace utils
 {
@@ -11,4 +12,6 @@ namespace utils
     bool InstallFont(const std::string path);
     bool UninstallFont(const std::string path);
     void ErrorMessage(const std::string text);
+
+    CString GetGamePath();
 }
