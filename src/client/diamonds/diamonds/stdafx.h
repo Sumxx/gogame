@@ -13,9 +13,9 @@
 
 #ifdef _IRR_WINDOWS_
 #ifdef _DEBUG
-#pragma comment(lib,"../../../../lib/irrlicht_d.lib")
+#pragma comment(lib,"irrlicht_d.lib")
 #else
-#pragma comment(lib,"../../../../lib/irrlicht.lib")
+#pragma comment(lib,"irrlicht.lib")
 #endif // _DEBUG
 #endif
 
