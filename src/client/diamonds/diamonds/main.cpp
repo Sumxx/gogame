@@ -14,7 +14,7 @@ int _tmain(int argc, _TCHAR* argv[])
     CString csImageTestPath(utils::GetGamePath() + L"res\\images\\brick0.png");
     CString csFontTestPath(utils::GetGamePath() + L"res\\fonts\\msyh.ttf");
 
-    IVideoDriver *pIrrDriver = pIrrDevice->getVideoDriver();
+    IVideoDriver* pIrrDriver = pIrrDevice->getVideoDriver();
     ITexture* Images = pIrrDriver->getTexture((LPCTSTR)csImageTestPath);
     ISceneManager* scene_mgr = pIrrDevice->getSceneManager();
     ISceneNode* cube = scene_mgr->addCubeSceneNode(100.0f);
@@ -34,7 +34,7 @@ int _tmain(int argc, _TCHAR* argv[])
             rect<s32>(0,0,800,600), 0,
             SColor(255,255,255,255), true);
         scene_mgr->drawAll();
-        cube->setPosition(core::vector3df(0, ++iYPos, -700));
+        cube->setPosition(core::vector3df(0, iYPos, -700));
         pIrrDriver->endScene();
     }
 
