@@ -25,6 +25,9 @@
     <Filter Include="source\html">
       <UniqueIdentifier>{320470d5-c935-4711-8408-5d1d121fea9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\css">
+      <UniqueIdentifier>{983e4b3e-c3ab-4e89-95c0-e47c0a5534bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -93,6 +96,15 @@
     <ClInclude Include="html_object.h">
       <Filter>source\html</Filter>
     </ClInclude>
+    <ClInclude Include="css_parse.h">
+      <Filter>source\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_object.h">
+      <Filter>source\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_name.h">
+      <Filter>source\css</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -118,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="html_object.cpp">
       <Filter>source\html</Filter>
+    </ClCompile>
+    <ClCompile Include="css_parse.cpp">
+      <Filter>source\css</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

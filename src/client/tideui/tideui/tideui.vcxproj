@@ -82,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\include\tinyxml\tinyxml.h" />
+    <ClInclude Include="css_name.h" />
+    <ClInclude Include="css_object.h" />
+    <ClInclude Include="css_parse.h" />
     <ClInclude Include="html_object.h" />
     <ClInclude Include="html_parse.h" />
     <ClInclude Include="parse_script\freedom_control_object.h" />
@@ -113,6 +116,7 @@
     <ClCompile Include="..\..\..\..\include\tinyxml\tinyxmlparser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="css_parse.cpp" />
     <ClCompile Include="html_object.cpp" />
     <ClCompile Include="html_parse.cpp" />
     <ClCompile Include="parse_script\freedom_script.cpp" />

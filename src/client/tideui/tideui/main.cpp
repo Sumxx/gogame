@@ -5,6 +5,7 @@
 #include "tideui.h"
 #include <atlstr.h>
 #include "html_parse.h"
+#include "css_parse.h"
 
 #define MAX_LOADSTRING 100
 
@@ -167,11 +168,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
     html_parse HTML;
+    css_parse CSS;
 	UNREFERENCED_PARAMETER(lParam);
 	switch (message)
 	{
 	case WM_INITDIALOG:
         HTML.parseFile(L"D:\\Desktop\\test.html");
+        CSS.parseFile(L"D:\\Desktop\\game.css");
 		return (INT_PTR)TRUE;
 
 	case WM_COMMAND:
