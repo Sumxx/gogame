@@ -28,6 +28,18 @@
     <Filter Include="source\css">
       <UniqueIdentifier>{983e4b3e-c3ab-4e89-95c0-e47c0a5534bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\draw">
+      <UniqueIdentifier>{e6926d97-bf5c-4c11-a097-22f5b69192f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\unite">
+      <UniqueIdentifier>{a9ad346c-7b5a-4af6-aba8-129f22f66bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\draw\draw_object">
+      <UniqueIdentifier>{36e42fcd-d9f0-4f4a-81ba-992cbe9b335b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\draw\draw_engine">
+      <UniqueIdentifier>{abaaea71-ec09-4c84-b076-aeea6c2e7e54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -105,6 +117,30 @@
     <ClInclude Include="css_name.h">
       <Filter>source\css</Filter>
     </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>source\unite</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_draw_object.h">
+      <Filter>source\draw\draw_object</Filter>
+    </ClInclude>
+    <ClInclude Include="draw_object_factory.h">
+      <Filter>source\draw\draw_object</Filter>
+    </ClInclude>
+    <ClInclude Include="draw_head.h">
+      <Filter>source\draw\draw_object</Filter>
+    </ClInclude>
+    <ClInclude Include="draw_html.h">
+      <Filter>source\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_draw.h">
+      <Filter>source\draw\draw_engine</Filter>
+    </ClInclude>
+    <ClInclude Include="gdi_plus_draw.h">
+      <Filter>source\draw\draw_engine</Filter>
+    </ClInclude>
+    <ClInclude Include="directx9_draw.h">
+      <Filter>source\draw\draw_engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -133,6 +169,15 @@
     </ClCompile>
     <ClCompile Include="css_parse.cpp">
       <Filter>source\css</Filter>
+    </ClCompile>
+    <ClCompile Include="gdi_plus_draw.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="draw_html.cpp">
+      <Filter>source\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="directx9_draw.cpp">
+      <Filter>source\draw\draw_engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

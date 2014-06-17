@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "css_parse.h"
 #include <assert.h>
+#include <mutex>
 
 css_parse::css_parse()
 {

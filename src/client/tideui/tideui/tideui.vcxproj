@@ -85,8 +85,16 @@
     <ClInclude Include="css_name.h" />
     <ClInclude Include="css_object.h" />
     <ClInclude Include="css_parse.h" />
+    <ClInclude Include="define.h" />
+    <ClInclude Include="directx9_draw.h" />
+    <ClInclude Include="draw_html.h" />
+    <ClInclude Include="draw_head.h" />
+    <ClInclude Include="draw_object_factory.h" />
+    <ClInclude Include="gdi_plus_draw.h" />
     <ClInclude Include="html_object.h" />
     <ClInclude Include="html_parse.h" />
+    <ClInclude Include="interface_draw.h" />
+    <ClInclude Include="interface_draw_object.h" />
     <ClInclude Include="parse_script\freedom_control_object.h" />
     <ClInclude Include="parse_script\freedom_control_object_base.h" />
     <ClInclude Include="parse_script\freedom_control_object_h1.h" />
@@ -117,6 +125,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="css_parse.cpp" />
+    <ClCompile Include="directx9_draw.cpp" />
+    <ClCompile Include="draw_html.cpp" />
+    <ClCompile Include="gdi_plus_draw.cpp" />
     <ClCompile Include="html_object.cpp" />
     <ClCompile Include="html_parse.cpp" />
     <ClCompile Include="parse_script\freedom_script.cpp" />

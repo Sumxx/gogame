@@ -33,7 +33,7 @@ private:
     bool                _parseName(TiXmlNode* node);
     bool                _parseText(TiXmlElement* node);
 
-private:
+public:
     _objectArribute           m_arributeMap;
     _objectChiledNode         m_chiledNodeVec;
     std::string               m_name;
