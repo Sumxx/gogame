@@ -89,6 +89,7 @@
     <ClInclude Include="directx9_draw.h" />
     <ClInclude Include="draw_html.h" />
     <ClInclude Include="draw_head.h" />
+    <ClInclude Include="css_arribute.h" />
     <ClInclude Include="draw_object_factory.h" />
     <ClInclude Include="gdi_plus_draw.h" />
     <ClInclude Include="html_object.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="css_parse.cpp" />
     <ClCompile Include="directx9_draw.cpp" />
     <ClCompile Include="draw_html.cpp" />
+    <ClCompile Include="css_arribute.cpp" />
     <ClCompile Include="gdi_plus_draw.cpp" />
     <ClCompile Include="html_object.cpp" />
     <ClCompile Include="html_parse.cpp" />

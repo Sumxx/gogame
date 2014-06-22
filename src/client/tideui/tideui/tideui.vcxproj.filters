@@ -40,6 +40,9 @@
     <Filter Include="source\draw\draw_engine">
       <UniqueIdentifier>{abaaea71-ec09-4c84-b076-aeea6c2e7e54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\tool">
+      <UniqueIdentifier>{ab2f2355-b090-4b24-945f-92c1ab1b634b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -141,6 +144,9 @@
     <ClInclude Include="directx9_draw.h">
       <Filter>source\draw\draw_engine</Filter>
     </ClInclude>
+    <ClInclude Include="css_arribute.h">
+      <Filter>source\css</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -170,14 +176,17 @@
     <ClCompile Include="css_parse.cpp">
       <Filter>source\css</Filter>
     </ClCompile>
-    <ClCompile Include="gdi_plus_draw.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="draw_html.cpp">
       <Filter>source\draw</Filter>
     </ClCompile>
     <ClCompile Include="directx9_draw.cpp">
       <Filter>source\draw\draw_engine</Filter>
+    </ClCompile>
+    <ClCompile Include="gdi_plus_draw.cpp">
+      <Filter>source\draw\draw_engine</Filter>
+    </ClCompile>
+    <ClCompile Include="css_arribute.cpp">
+      <Filter>source\css</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

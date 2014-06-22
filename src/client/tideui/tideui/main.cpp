@@ -6,9 +6,11 @@
 #include <atlstr.h>
 #include "html_parse.h"
 #include "css_parse.h"
+#include "draw_html.h"
 
 #define MAX_LOADSTRING 100
 
+draw_html               g_draw_html;
 // 全局变量:
 HINSTANCE hInst;								// 当前实例
 TCHAR szTitle[MAX_LOADSTRING];					// 标题栏文本
@@ -110,6 +112,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
+   g_draw_html.init((tidHandle)::GetDC(hWnd), emDrawTypeGdiPlus);
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
@@ -168,13 +171,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
     html_parse HTML;
-    css_parse CSS;
 	UNREFERENCED_PARAMETER(lParam);
 	switch (message)
 	{
 	case WM_INITDIALOG:
         HTML.parseFile(L"D:\\Desktop\\test.html");
-        CSS.parseFile(L"D:\\Desktop\\game.css");
+        HTML.m_cssParse.parseFile(L"D:\\Desktop\\game.css");
+        for (auto it = HTML.m_htmlElement.begin();
+            it != HTML.m_htmlElement.end();
+            ++it)
+        {
+            css_objcet* cssObject = nullptr;
+            auto idit = (*it)->m_arributeMap.find("id");
+            if (idit != (*it)->m_arributeMap.end())
+            {
+                for (auto cssit = HTML.m_cssParse.m_cssObjectInfoVec.begin();
+                    cssit != HTML.m_cssParse.m_cssObjectInfoVec.end();
+                    ++cssit)
+                {
+                    for (auto cssitName = (*cssit)->cssGroup.begin();
+                        cssitName != (*cssit)->cssGroup.end();
+                        ++cssitName)
+                    {
+                        std::string idname = "#";
+                        idname += idit->second;
+                        for (auto cssfinditName : cssitName->nameList)
+                        {
+                            if (idname == cssfinditName)
+                            {
+                                cssObject = *cssit;
+                            }
+                        }
+                    }
+                }
+            }
+            g_draw_html.draw((*it), cssObject);
+        }
 		return (INT_PTR)TRUE;
 
 	case WM_COMMAND:

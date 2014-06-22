@@ -44,10 +44,10 @@ private:
     int                         _isNonAscii(char c);
     int                         _isUrlChar(char c);
 
-private:
+public:
     typedef std::vector<css_objcet*> _cssObjectInfo;
 
-private:
+public:
     _cssObjectInfo              m_cssObjectInfoVec;
 };
 

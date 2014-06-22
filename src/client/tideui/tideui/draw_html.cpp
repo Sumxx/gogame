@@ -13,7 +13,7 @@
 
 draw_html::draw_html()
 {
-    m_drawPrt = nullptr;
+    m_drawPtr = nullptr;
 }
 
 draw_html::~draw_html()
@@ -21,34 +21,35 @@ draw_html::~draw_html()
 
 }
 
-bool draw_html::init(drawHandle handle, emDrawType emType)
+bool draw_html::init(tidHandle handle, emDrawType emType)
 {
     if (handle == NULL)
     {
         return false;
     }
 
-    m_drawPrt = _createDraw(emType);
-    if (m_drawPrt == nullptr)
+    m_drawPtr = _createDraw(emType);
+    if (m_drawPtr == nullptr)
     {
         return false;
     }
-    return m_drawPrt->init(handle);
+    return m_drawPtr->init(handle);
 }
 
 bool draw_html::uninit()
 {
-    if (m_drawPrt)
+    if (m_drawPtr)
     {
-        delete m_drawPrt;
-        m_drawPrt = nullptr;
+        delete m_drawPtr;
+        m_drawPtr = nullptr;
     }
     return true;
 }
 
-bool draw_html::draw(html_object* object)
+bool draw_html::draw(html_object* object, css_objcet* cssObject)
 {
-    if (m_drawPrt == nullptr)
+    if (m_drawPtr == nullptr
+        || object == nullptr)
     {
         return false;
     }
@@ -63,7 +64,7 @@ bool draw_html::draw(html_object* object)
             break;
         }
 
-        if (drawobject->draw(m_drawPrt))
+        if (drawobject->draw(m_drawPtr, cssObject))
         {
             break;
         }

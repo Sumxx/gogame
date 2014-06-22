@@ -12,6 +12,7 @@
 #include "html_object.h"
 #include <string>
 #include <vector>
+#include "css_parse.h"
 
 class html_parse
 {
@@ -31,8 +32,9 @@ private:
 public:
     typedef std::vector<html_object*>    htmlElement;
 
-private:
+public:
     htmlElement                m_htmlElement;
+    css_parse                  m_cssParse;
 };
 
 #endif // __HTML_PARSE_H_

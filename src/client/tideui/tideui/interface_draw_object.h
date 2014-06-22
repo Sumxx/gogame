@@ -9,10 +9,11 @@
 #define __INTERFACE_DRAW_OBJECT_H_
 
 #include "define.h"
+#include "css_object.h"
 
 interface interface_draw_object
 {
-    virtual bool                draw(interface_draw* draw) = 0;
+    virtual bool                draw(interface_draw* draw, css_objcet* cssObject) = 0;
     virtual bool                update() = 0;
     virtual void                pos(int x, int y) = 0;
     virtual void                size(int width, int height) = 0;

@@ -11,15 +11,14 @@
 #include "css_name.h"
 #include <map>
 #include <vector>
+#include "css_arribute.h"
 
-typedef std::map<std::string, std::vector<std::string> > cssObjectArrtibute;
 typedef std::vector<css_name>                            cssNameGroup;
 
 struct css_objcet
 {
-public:
     cssNameGroup            cssGroup;
-    cssObjectArrtibute      cssArrMap;
+    css_arribute            cssArribute;
 };
 
 #endif // __CSS_OBJECT_H_

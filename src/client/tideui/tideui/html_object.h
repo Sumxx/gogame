@@ -23,7 +23,7 @@ public:
     bool                parse(TiXmlNode* node);
     bool                parseArrtibute(TiXmlElement* node);
 
-private:
+public:
     typedef std::map<std::string, std::string> _objectArribute;
     typedef std::vector<html_object*>          _objectChiledNode;
 

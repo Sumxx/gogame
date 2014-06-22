@@ -275,6 +275,7 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
     std::string attrName;
     std::string attrValue;
     bool isSetValue = false;
+    cssObjectArrtibute cssArrMap;
     int index = presentIndex;
     for (; index < bufferLen; ++index)
     {
@@ -285,7 +286,7 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
                 && !attrValue.empty()
                 && !_isArrEnd(bufferPtr, bufferLen, index))
             {
-                object->cssArrMap[attrName].push_back(attrValue);
+                cssArrMap[attrName].push_back(attrValue);
                 attrValue.clear();
             }
             continue;
@@ -296,7 +297,7 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
         }
         if (bufferPtr[index] == ';')
         {
-            object->cssArrMap[attrName].push_back(attrValue);
+            cssArrMap[attrName].push_back(attrValue);
             attrValue.clear();
             attrName.clear();
             isSetValue = false;
@@ -306,6 +307,7 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
             || bufferPtr[index] == '/'
             || bufferPtr[index] == '\\'
             || bufferPtr[index] == '.'
+            || bufferPtr[index] == '-'
             || bufferPtr[index] == '#'
             || bufferPtr[index] == '('
             || bufferPtr[index] == ')')
@@ -323,11 +325,13 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
         {
             if (!attrName.empty())
             {
-                object->cssArrMap[attrName].push_back(attrValue);
+                cssArrMap[attrName].push_back(attrValue);
             }
             break;
         }
     }
+
+    object->cssArribute.set(cssArrMap);
     return index;
 }
 

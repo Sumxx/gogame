@@ -17,14 +17,15 @@ public:
     virtual ~directx9_draw();
 
 public:
-    virtual bool                init(drawHandle handle);
+    virtual bool                init(tidHandle handle);
     virtual bool                uninit();
-    virtual bool                drawLine();
-    virtual bool                drawRect();
-    virtual bool                drawImg();
+    virtual bool                drawLine(const tidPoint& posX, const tidPoint& posY, tidColor& color);
+    virtual bool                drawRect(const tidRect& rect, tidColor& color);
+    virtual bool                drawImg(tidImageObject* img, const tidPoint& pos);
+    virtual bool                drawImg(tidImageObject* img, const tidRect& rect);
 
 private:
-    drawHandle              m_handle;
+    tidHandle              m_handle;
 };
 
 #endif // __DIRECTX9_DRAW_H_

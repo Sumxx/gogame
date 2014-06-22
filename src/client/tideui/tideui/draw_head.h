@@ -10,6 +10,7 @@
 
 #include "interface_draw_object.h"
 #include "interface_draw.h"
+#include "css_arribute.h"
 
 class draw_head : public interface_draw_object
 {
@@ -23,13 +24,19 @@ public:
 
     }
 
-    virtual bool                draw(interface_draw* draw)
+    virtual bool                draw(interface_draw* draw, css_objcet* cssObject)
     {
         if (draw == nullptr)
         {
             return false;
         }
-        draw->drawRect();
+
+        int width = 0;
+        int height = 0;
+        draw->drawRect(tidRect(0, 0, cssObject->cssArribute.width, cssObject->cssArribute.height),
+            tidColor(cssObject->cssArribute.background_color));
+//         draw->drawImg(tidImageObject::FromFile(L"D:\\Desktop\\1.jpg"),
+//             tidPoint(0,0));
         return true;
     }
 
@@ -40,18 +47,18 @@ public:
 
     virtual void                pos(int x, int y)
     {
-        m_rect.left = x;
-        m_rect.top = y;
+        m_rect.X = x;
+        m_rect.Y = y;
     }
 
     virtual void                size(int width, int height)
     {
-        m_rect.right = m_rect.left + width;
-        m_rect.bottom = m_rect.top + height;
+        m_rect.Width = width;
+        m_rect.Height = height;
     }
 
 private:
-    drawRect                m_rect;
+    tidRect                m_rect;
 };
 
 #endif // __DRAW_HEAD_H_
