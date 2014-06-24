@@ -11,6 +11,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "css_convert.h"
 
 #define CSS_ARRIBUTE_LIST_BEGIN() \
 bool _setValue(const cssObjectArrtibute& arribute) \
@@ -62,18 +63,15 @@ public:
 private:
     CSS_ARRIBUTE_LIST_BEGIN()
         ///> 注册 CSS 尺寸属性（Dimension）
-        CSS_ARRIBUTE_PARAM("width", width, ::atoi)
-        CSS_ARRIBUTE_PARAM("height", height, ::atoi)
-        CSS_ARRIBUTE_PARAM("max-width", max_width, ::atoi)
-        CSS_ARRIBUTE_PARAM("min-width", min_width, ::atoi)
-        CSS_ARRIBUTE_PARAM("max-height", max_height, ::atoi)
-        CSS_ARRIBUTE_PARAM("min-height", min_height, ::atoi)
+        CSS_ARRIBUTE_PARAM("width", width, css_convert_int_opt())
+        CSS_ARRIBUTE_PARAM("height", height, css_convert_int_opt())
+        CSS_ARRIBUTE_PARAM("max-width", max_width, css_convert_int_opt())
+        CSS_ARRIBUTE_PARAM("min-width", min_width, css_convert_int_opt())
+        CSS_ARRIBUTE_PARAM("max-height", max_height, css_convert_int_opt())
+        CSS_ARRIBUTE_PARAM("min-height", min_height, css_convert_int_opt())
         ///> 注册 CSS 背景属性（Background）
-        CSS_ARRIBUTE_PARAM("background-color", background_color, _convertColor2Int)
+        CSS_ARRIBUTE_PARAM("background-color", background_color, css_convert_color_opt())
     CSS_ARRIBUTE_LIST_END()
-
-private:
-    unsigned long _convertColor2Int(const std::string& colorValue);
 
 public:
     ///> 注册 CSS 尺寸属性（Dimension）
@@ -86,7 +84,7 @@ public:
     ///> 注册 CSS 背景属性（Background）
     //int background;                       ///>在一个声明中设置所有的背景属性。
     int                     background_attachment;            ///>设置背景图像是否固定或者随着页面的其余部分滚动。
-    unsigned long           background_color;                 ///>设置元素的背景颜色。
+    tid::uint32             background_color;                 ///>设置元素的背景颜色。
     std::wstring            background_image;                 ///>设置元素的背景图像。
     int                     background_position;              ///>设置背景图像的开始位置。
     int                     background_repeat;                ///>设置是否及如何重复背景图像。

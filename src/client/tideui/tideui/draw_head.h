@@ -33,8 +33,8 @@ public:
 
         int width = 0;
         int height = 0;
-        draw->drawRect(tidRect(0, 0, cssObject->cssArribute.width, cssObject->cssArribute.height),
-            tidColor(cssObject->cssArribute.background_color));
+        draw->drawRect(tid::rect(0, 0, cssObject->cssArribute.width, cssObject->cssArribute.height),
+            tid::color(cssObject->cssArribute.background_color));
 //         draw->drawImg(tidImageObject::FromFile(L"D:\\Desktop\\1.jpg"),
 //             tidPoint(0,0));
         return true;
@@ -58,7 +58,7 @@ public:
     }
 
 private:
-    tidRect                m_rect;
+    tid::rect                m_rect;
 };
 
 #endif // __DRAW_HEAD_H_

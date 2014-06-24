@@ -43,6 +43,9 @@
     <Filter Include="source\tool">
       <UniqueIdentifier>{ab2f2355-b090-4b24-945f-92c1ab1b634b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\css\convert">
+      <UniqueIdentifier>{87b058ad-4750-4442-8809-39e3cb838eea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -146,6 +149,18 @@
     </ClInclude>
     <ClInclude Include="css_arribute.h">
       <Filter>source\css</Filter>
+    </ClInclude>
+    <ClInclude Include="character_tool.h">
+      <Filter>source\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="css_convert.h">
+      <Filter>source\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_convert_color_opt.h">
+      <Filter>source\css\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="css_convert_int_opt.h">
+      <Filter>source\css\convert</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

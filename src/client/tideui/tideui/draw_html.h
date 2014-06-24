@@ -20,14 +20,14 @@ public:
     ~draw_html();
 
 public:
-    bool                init(tidHandle handle, emDrawType emType);
+    bool                init(tid::handle handle, tid::emDrawType emType);
     bool                uninit();
     bool                draw(html_object* object, css_objcet* cssObject);
     bool                update(html_object* object);
     bool                clear(html_object* object);
 
 private:
-    interface_draw*     _createDraw(emDrawType emType);
+    interface_draw*     _createDraw(tid::emDrawType emType);
 
 private:
     interface_draw*     m_drawPtr;

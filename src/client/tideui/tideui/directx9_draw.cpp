@@ -19,7 +19,7 @@ directx9_draw::~directx9_draw()
 
 }
 
-bool directx9_draw::init(tidHandle handle)
+bool directx9_draw::init(tid::handle handle)
 {
     return true;
 }
@@ -29,22 +29,22 @@ bool directx9_draw::uninit()
     return true;
 }
 
-bool directx9_draw::drawLine(const tidPoint& posX, const tidPoint& posY, tidColor& color)
+bool directx9_draw::drawLine(const tid::point& posX, const tid::point& posY, tid::color& color)
 {
     return true;
 }
 
-bool directx9_draw::drawRect(const tidRect& rect, tidColor& color)
+bool directx9_draw::drawRect(const tid::rect& rect, tid::color& color)
 {
     return true;
 }
 
-bool directx9_draw::drawImg(tidImageObject* img, const tidRect& rect)
+bool directx9_draw::drawImg(tid::imageObject* img, const tid::rect& rect)
 {
     return true;
 }
 
-bool directx9_draw::drawImg(tidImageObject* img, const tidPoint& pos)
+bool directx9_draw::drawImg(tid::imageObject* img, const tid::point& pos)
 {
     return true;
 }

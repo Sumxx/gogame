@@ -14,12 +14,12 @@
 
 interface interface_draw
 {
-    virtual bool                init(tidHandle handle) = 0;
+    virtual bool                init(tid::handle handle) = 0;
     virtual bool                uninit() = 0;
-    virtual bool                drawLine(const tidPoint& posX, const tidPoint& posY, tidColor& color) = 0;
-    virtual bool                drawRect(const tidRect& rect, tidColor& color) = 0;
-    virtual bool                drawImg(tidImageObject* img, const tidPoint& pos) = 0;
-    virtual bool                drawImg(tidImageObject* img, const tidRect& rect) = 0;
+    virtual bool                drawLine(const tid::point& posX, const tid::point& posY, tid::color& color) = 0;
+    virtual bool                drawRect(const tid::rect& rect, tid::color& color) = 0;
+    virtual bool                drawImg(tid::imageObject* img, const tid::point& pos) = 0;
+    virtual bool                drawImg(tid::imageObject* img, const tid::rect& rect) = 0;
 };
 
 #endif // __INTERFACE_DRAW_H_

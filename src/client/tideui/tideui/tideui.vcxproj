@@ -82,6 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\include\tinyxml\tinyxml.h" />
+    <ClInclude Include="character_tool.h" />
+    <ClInclude Include="css_convert.h" />
+    <ClInclude Include="css_convert_color_opt.h" />
+    <ClInclude Include="css_convert_int_opt.h" />
     <ClInclude Include="css_name.h" />
     <ClInclude Include="css_object.h" />
     <ClInclude Include="css_parse.h" />

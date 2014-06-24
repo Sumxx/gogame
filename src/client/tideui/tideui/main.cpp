@@ -112,7 +112,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-   g_draw_html.init((tidHandle)::GetDC(hWnd), emDrawTypeGdiPlus);
+   g_draw_html.init((tid::handle)::GetDC(hWnd), tid::emDrawTypeGdiPlus);
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 

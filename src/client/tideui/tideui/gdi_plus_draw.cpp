@@ -19,7 +19,7 @@ gdi_plus_draw::~gdi_plus_draw()
 
 }
 
-bool gdi_plus_draw::init(tidHandle handle)
+bool gdi_plus_draw::init(tid::handle handle)
 {
     m_handle = handle;
     Gdiplus::GdiplusStartupInput StartupInput;
@@ -39,7 +39,7 @@ bool gdi_plus_draw::uninit()
     return true;
 }
 
-bool gdi_plus_draw::drawLine(const tidPoint& posX, const tidPoint& posY, tidColor& color)
+bool gdi_plus_draw::drawLine(const tid::point& posX, const tid::point& posY, tid::color& color)
 {
     if (m_graphicsPtr == nullptr)
     {
@@ -57,7 +57,7 @@ bool gdi_plus_draw::drawLine(const tidPoint& posX, const tidPoint& posY, tidColo
     return true;
 }
 
-bool gdi_plus_draw::drawRect(const tidRect& rect, tidColor& color)
+bool gdi_plus_draw::drawRect(const tid::rect& rect, tid::color& color)
 {
     if (m_graphicsPtr == nullptr)
     {
@@ -74,7 +74,7 @@ bool gdi_plus_draw::drawRect(const tidRect& rect, tidColor& color)
     return true;
 }
 
-bool gdi_plus_draw::drawImg(tidImageObject* img, const tidPoint& pos)
+bool gdi_plus_draw::drawImg(tid::imageObject* img, const tid::point& pos)
 {
     if (m_graphicsPtr == nullptr
         || img == nullptr)
@@ -91,7 +91,7 @@ bool gdi_plus_draw::drawImg(tidImageObject* img, const tidPoint& pos)
     return true;
 }
 
-bool gdi_plus_draw::drawImg(tidImageObject* img, const tidRect& rect)
+bool gdi_plus_draw::drawImg(tid::imageObject* img, const tid::rect& rect)
 {
     if (m_graphicsPtr == nullptr
         || img == nullptr)

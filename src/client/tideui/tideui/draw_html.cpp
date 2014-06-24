@@ -21,7 +21,7 @@ draw_html::~draw_html()
 
 }
 
-bool draw_html::init(tidHandle handle, emDrawType emType)
+bool draw_html::init(tid::handle handle, tid::emDrawType emType)
 {
     if (handle == NULL)
     {
@@ -86,15 +86,15 @@ bool draw_html::clear(html_object* object)
     return true;
 }
 
-interface_draw* draw_html::_createDraw(emDrawType emType)
+interface_draw* draw_html::_createDraw(tid::emDrawType emType)
 {
     switch (emType)
     {
-    case emDrawTypeGdiPlus:
+    case tid::emDrawTypeGdiPlus:
         {
             return new gdi_plus_draw;
         }
-    case emDrawTypeDx:
+    case tid::emDrawTypeDx:
         {
             return new directx9_draw;
         }

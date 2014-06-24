@@ -10,6 +10,9 @@
 
 #include <gdiplus.h>
 
+namespace tid
+{
+
 typedef enum __emDrawType
 {
     emDrawTypeGdiPlus               = 1,
@@ -17,10 +20,21 @@ typedef enum __emDrawType
 }emDrawType;
 
 ///> type
-typedef Gdiplus::Color              tidColor;
-typedef HDC                         tidHandle;
-typedef Gdiplus::Rect               tidRect;
-typedef Gdiplus::Point              tidPoint;
-typedef Gdiplus::Image              tidImageObject;
+typedef Gdiplus::Color              color;
+typedef HDC                         handle;
+typedef Gdiplus::Rect               rect;
+typedef Gdiplus::Point              point;
+typedef Gdiplus::Image              imageObject;
+
+typedef unsigned char               uint8;
+typedef unsigned short              uint16;
+typedef unsigned int                uint32;
+typedef unsigned long long          uint64;
+typedef char                        int8;
+typedef short                       int16;
+typedef int                         int32;
+typedef long long                   int64;
+
+}
 
 #endif // __DEFINE_H_

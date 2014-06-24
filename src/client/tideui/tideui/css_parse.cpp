@@ -10,6 +10,7 @@
 #include "css_parse.h"
 #include <assert.h>
 #include <mutex>
+#include "character_tool.h"
 
 css_parse::css_parse()
 {
@@ -74,12 +75,12 @@ bool css_parse::_parseCSS(char* bufferPtr, int bufferLen)
     assert(bufferPtr != nullptr);
     for (int index = 0; index < bufferLen; ++index)
     {
-        if (_isWhitespace(bufferPtr[index])
-            || _isNonAscii(bufferPtr[index]))
+        if (character_tool::isWhitespace(bufferPtr[index])
+            || character_tool::isNonAscii(bufferPtr[index]))
         {
             continue;
         }
-        if (_isAlpha(bufferPtr[index])
+        if (character_tool::isAlpha(bufferPtr[index])
             || _isOperator(bufferPtr[index]))
         {
             css_objcet* cssObject = new css_objcet;
@@ -104,86 +105,13 @@ long css_parse::_getFileLen(std::fstream& fileStream)
     return length;
 }
 
-int css_parse::_isNonAscii(char c)
-{
-    return ((c >= 0x80 && c <= 0xD7FF)
-        || (c >= 0xE00 && c <= 0xFFFD)
-        || (c >= 0x10000 && c <= 0x10FFFF));
-}
-
-int css_parse::_isHex(char c)
-{
-    return ((c >= '0' && c <= '9')
-        || (c >= 'a' && c <= 'f')
-        || (c >= 'A' && c <= 'F'));
-}
-
-int css_parse::_isUrlChar(char c)
-{
-    return ((c == 0x9
-        || c == 0x21
-        || (c >= 0x23 && c <= 0x26 )
-        || (c >= 0x27 && c <= 0x7E )
-        || _isNonAscii( c ))
-        && c != ')');
-}
-
-int css_parse::_isStringChar(char c)
-{
-    return (_isUrlChar( c )
-        || c == 0x20);
-}
-
-int css_parse::_isNewline(char c)
-{
-    return (c == 0xA
-        || c == 0xD
-        || c == 0xC);
-}
-
-int css_parse::_isWhitespace(char c)
-{
-    return (_isNewline(c)
-        || c == 0x9
-        || c == 0x20);
-}
-
-int css_parse::_isNameChar(char c)
-{
-    return (iswalpha(c)
-        || iswdigit(c)
-        || c == '-'
-        || c == '_'
-        || _isNonAscii(c));
-}
-
 int css_parse::_isNameStart(char c)
 {
     return (iswalpha(c)
         || c == '_'
-        || _isNonAscii(c));
+        || character_tool::isNonAscii(c));
 };
 
-int css_parse::_isAlpha(char c)
-{
-    return iswalpha(c);
-}
-
-int css_parse::_isNumeric(char c)
-{
-    return (iswdigit(c));
-}
-
-int css_parse::_isAlphanumeric(char c)
-{
-    return iswalnum(c);
-}
-
-int css_parse::_isQuote(char c)
-{
-    return (c == '"'
-        || c == '\'');
-}
 int css_parse::_isOperator(char c)
 {
     switch (c)
@@ -217,7 +145,7 @@ int css_parse::_parseNode(css_objcet* object, char* bufferPtr, int bufferLen, in
     int index = presentIndex;
     for (; index < bufferLen; ++index)
     {
-        if (_isWhitespace(bufferPtr[index]))
+        if (character_tool::isWhitespace(bufferPtr[index]))
         {
             if (bufferPtr[index] == ' '
                 && !name.empty()
@@ -228,7 +156,7 @@ int css_parse::_parseNode(css_objcet* object, char* bufferPtr, int bufferLen, in
             }
             continue;
         }
-        if (_isAlpha(bufferPtr[index])
+        if (character_tool::isAlpha(bufferPtr[index])
             || _isNameChar(bufferPtr[index])
             || bufferPtr[index] == '.'
             || bufferPtr[index] == '#'
@@ -279,7 +207,7 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
     int index = presentIndex;
     for (; index < bufferLen; ++index)
     {
-        if (_isWhitespace(bufferPtr[index]))
+        if (character_tool::isWhitespace(bufferPtr[index]))
         {
             if (bufferPtr[index] == ' '
                 && !attrName.empty()
@@ -302,15 +230,16 @@ int css_parse::_parseAttr(css_objcet* object, char* bufferPtr, int bufferLen, in
             attrName.clear();
             isSetValue = false;
         }
-        if (_isAlpha(bufferPtr[index])
-            || _isNumeric(bufferPtr[index])
+        if (character_tool::isAlpha(bufferPtr[index])
+            || character_tool::isNumeric(bufferPtr[index])
             || bufferPtr[index] == '/'
             || bufferPtr[index] == '\\'
             || bufferPtr[index] == '.'
             || bufferPtr[index] == '-'
             || bufferPtr[index] == '#'
             || bufferPtr[index] == '('
-            || bufferPtr[index] == ')')
+            || bufferPtr[index] == ')'
+            || bufferPtr[index] == ',')
         {
             if (isSetValue)
             {
@@ -342,12 +271,12 @@ bool css_parse::_isNameEnd(char* bufferPtr, int bufferLen, int presentIndex)
     int index = presentIndex;
     for (; index < bufferLen; ++index)
     {
-        if (_isWhitespace(bufferPtr[index]))
+        if (character_tool::isWhitespace(bufferPtr[index]))
         {
             continue;
         }
-        if (_isAlpha(bufferPtr[index])
-            || _isNumeric(bufferPtr[index]))
+        if (character_tool::isAlpha(bufferPtr[index])
+            || character_tool::isNumeric(bufferPtr[index]))
         {
             return false;
         }
@@ -367,12 +296,12 @@ bool css_parse::_isArrEnd(char* bufferPtr, int bufferLen, int presentIndex)
     int index = presentIndex;
     for (; index < bufferLen; ++index)
     {
-        if (_isWhitespace(bufferPtr[index]))
+        if (character_tool::isWhitespace(bufferPtr[index]))
         {
             continue;
         }
-        if (_isAlpha(bufferPtr[index])
-            || _isNumeric(bufferPtr[index]))
+        if (character_tool::isAlpha(bufferPtr[index])
+            || character_tool::isNumeric(bufferPtr[index]))
         {
             return false;
         }
@@ -383,4 +312,13 @@ bool css_parse::_isArrEnd(char* bufferPtr, int bufferLen, int presentIndex)
         }
     }
     return true;
+}
+
+int css_parse::_isNameChar(char c)
+{
+    return (iswalpha(c)
+        || iswdigit(c)
+        || c == '-'
+        || c == '_'
+        || character_tool::isNonAscii(c));
 }

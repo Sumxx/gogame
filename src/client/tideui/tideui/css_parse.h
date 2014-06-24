@@ -31,18 +31,7 @@ private:
     long                        _getFileLen(std::fstream& fileStream);
     int                         _isNameStart(char c);
     int                         _isNameChar(char c);
-    int                         _isHex(char c);
-    int                         _isStringChar(char c);
-    int                         _UrlChar(char c);
-    int                         _isNewline(char c);
-    int                         _isWhitespace(char c);
-    int                         _isAlphanumeric(char c);
-    int                         _isAlpha(char c);
-    int                         _isNumeric(char c);
-    int                         _isQuote(char c);
     int                         _isOperator(char c);
-    int                         _isNonAscii(char c);
-    int                         _isUrlChar(char c);
 
 public:
     typedef std::vector<css_objcet*> _cssObjectInfo;
